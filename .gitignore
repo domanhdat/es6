@@ -1,0 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+Decorator.iml
+node_modules
+public/bower_components

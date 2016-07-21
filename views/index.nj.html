@@ -1,0 +1,50 @@
+{% extends "layout.nj.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-8">
+        <a href="/book/edit" class="btn btn-primary btn-block">
+            Create Book
+        </a>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12" style="overflow-x: scroll">
+        <table class="table table-bordered" style="margin-top: 15px;">
+            <thead>
+            <tr class="row">
+                <td class="col-sm-4">Id</td>
+                <td class="col-sm-4">Name</td>
+                <td class="col-sm-4">Author</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for book in books %}
+            <tr class="row">
+                <td class="col-sm-4">{{book._id}}</td>
+                <td class="col-sm-4">{{book.name}}</td>
+                <td class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{book.author}}
+                        </div>
+                        <div class="col-sm-6 hidden-xs">
+                            <div class="btn-group btn-group-justified">
+                                <div class="btn-group">
+                                    <a href="/book/edit/{{book._id}}" class="btn btn-primary">Edit</a>
+                                </div>
+                                <div class="btn-group">
+                                    <a href="/book/delete/{{book._id}}" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
